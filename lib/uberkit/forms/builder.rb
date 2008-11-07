@@ -3,8 +3,6 @@ class Uberkit::Forms::Builder < ActionView::Helpers::FormBuilder
   include ActionView::Helpers::TextHelper
   include ActionView::Helpers::UrlHelper
   include ActionView::Helpers::TagHelper
-
-	attr_accessor :output_buffer
   
   helpers = field_helpers + %w(date_select datetime_select time_select select html_area state_select country_select) - %w(hidden_field label fields_for) 
   
