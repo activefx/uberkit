@@ -20,7 +20,7 @@ class Uberkit::Forms::Builder < ActionView::Helpers::FormBuilder
   def generic_field(label_text,field,content,options = {})
     required = options.delete(:required)
     content_tag(:div, :class => "field_row#{' required' if required}#{' labelless' if label_text == ""}") do
-      ret = label(field, (label_text.to_s || (field.to_s.titleize + ":")) unless label_text == ""
+      ret = label(field, (label_text.to_s || (field.to_s.titleize + ":"))) unless label_text == ""
       ret << content
       ret << content_tag(:span, options.delete(:help), :class => "help") if options[:help]
       ret << content_tag(:span, options.delete(:description), :class => "description") if options[:description]
