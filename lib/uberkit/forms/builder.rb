@@ -28,9 +28,12 @@ class Uberkit::Forms::Builder < ActionView::Helpers::FormBuilder
       ret
     end
   end
-  
-  def submit(text)
-    content_tag(:button, text, :type => "submit")
+
+	# Must specify type when including options
+  # ex. f.submit "Save", "submit", :class => 'comment'
+  def submit(text, type="submit", options={})
+		options.merge!({:type => type})
+    content_tag(:button, text, options)
   end
   
   def custom(options = {}, &block)
